@@ -1,0 +1,2 @@
+proj1_turtlesim
+-DCATKIN_DEVEL_PREFIX=/home/bikash/proj1_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bikash/proj1_ws/install -G Unix Makefiles
