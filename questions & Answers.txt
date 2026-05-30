@@ -1,0 +1,20 @@
+1. What command did you use to create the package?
+catkin_create_pkg proj1_turtlesim rospy geometry_msgs
+This creates a package named proj1_turtlesim with rospy and geometry_msgs as dependencies
+
+2. Which ROS message type did your node publish, and why?
+geometry_msgs/Twist
+TurtleSim's cmd_vel topic expects a Twist message, which contains linear.x for forward/backward speed and angular.z for turning (exactly what a 2D turtle needs)
+
+3. How do you launch ROS, TurtleSim, and your controller together?
+Terminal 1: roscore
+Terminal 2: rosrun turtlesim turtlesim_node
+Terminal 3: rosrun proj1_turtlesim controller.py turtle1
+Terminal 4: rosservice call /spawn 3.0 3.0 0.0 turtle2
+Terminal 5:rosrun proj1_turtlesim controller.py turtle2
+
+4. How did you verify that your node publishes correctly?
+rostopic echo /turtle1/cmd_vel
+rostopic hz /turtle1/cmd_vel
+rostopic echo showed correct Twist values when keys were pressed. 
+rostopic hz confirmed a steady 10 Hz publish rate.
